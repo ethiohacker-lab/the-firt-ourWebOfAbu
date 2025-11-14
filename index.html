@@ -3,21 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modern Home Page</title>
-    <link rel="stylesheet" href="AbuAddisuEfrem">
+    <title>Modern Home Page - AI Tools Showcase</title>
+    <!-- Load Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Load Inter font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap">
+
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            /* Use Inter as the main font */
+            font-family: 'Inter', sans-serif;
         }
 
         body {
+            /* Main gradient background */
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             min-height: 100vh;
             overflow-x: hidden;
+            padding-bottom: 50px; /* Add padding for footer space */
         }
 
         .container {
@@ -36,7 +43,7 @@
 
         .logo {
             font-size: 28px;
-            font-weight: 700;
+            font-weight: 800;
             background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -54,18 +61,22 @@
             font-weight: 500;
             font-size: 16px;
             transition: all 0.3s ease;
+            padding: 5px 10px;
+            border-radius: 5px;
         }
 
         nav a:hover {
             color: #ff6b6b;
             transform: translateY(-2px);
+            background: rgba(255, 255, 255, 0.1);
         }
 
         /* Hero Section */
         .hero {
             display: flex;
             align-items: center;
-            min-height: 80vh;
+            /* Using padding instead of min-height to allow content flexibility */
+            padding: 80px 0;
             gap: 50px;
         }
 
@@ -86,21 +97,35 @@
             opacity: 0.9;
             line-height: 1.6;
         }
-
+        
+        /* CTA Button Styling for main links */
         .cta-button {
+            /* Removed padding/border/etc from button and applied to anchor */
+            background: none;
+            border: none;
+            padding: 0;
+            margin: 10px 0;
+            display: block; /* Make buttons stack vertically */
+            width: fit-content;
+        }
+
+        .cta-button a {
+            /* Apply button aesthetics to the anchor tag */
+            display: block;
             background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
             color: white;
             padding: 15px 30px;
-            border: none;
             border-radius: 50px;
             font-size: 18px;
             font-weight: 600;
             cursor: pointer;
+            text-decoration: none;
             transition: all 0.3s ease;
             box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            white-space: nowrap;
         }
 
-        .cta-button:hover {
+        .cta-button:hover a {
             transform: translateY(-3px);
             box-shadow: 0 6px 25px rgba(0,0,0,0.4);
         }
@@ -113,6 +138,8 @@
         .hero-image img {
             width: 100%;
             max-width: 500px;
+            aspect-ratio: 1/1; /* Ensure square aspect ratio */
+            object-fit: cover;
             border-radius: 20px;
             box-shadow: 0 20px 40px rgba(0,0,0,0.3);
             animation: float 3s ease-in-out infinite;
@@ -128,14 +155,17 @@
             padding: 80px 0;
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             margin: 50px 0;
             border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .section-title {
             text-align: center;
             font-size: 2.5rem;
             margin-bottom: 50px;
+            font-weight: 700;
         }
 
         .features-grid {
@@ -151,6 +181,7 @@
             text-align: center;
             transition: all 0.3s ease;
             backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .feature-card:hover {
@@ -161,27 +192,122 @@
         .feature-icon {
             font-size: 48px;
             margin-bottom: 20px;
-            color: #ff6b6b;
+            color: #4ecdc4; /* Changed icon color for contrast */
+            /* Added a subtle shadow to the icon */
+            text-shadow: 0 0 10px rgba(78, 205, 196, 0.8); 
         }
 
         .feature-card h3 {
             font-size: 1.5rem;
             margin-bottom: 15px;
+            font-weight: 600;
         }
 
         .feature-card p {
             opacity: 0.8;
             line-height: 1.6;
         }
+        
+        /* Contact Section Styles */
+        .contact {
+            padding: 80px 0;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            margin: 50px 0;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+        }
 
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+        
+        /* Input focus effects */
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: #4ecdc4;
+            box-shadow: 0 0 10px rgba(78, 205, 196, 0.5);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+        
+        /* Submit Button Styling for the form */
+        .submit-button {
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            margin-top: 10px;
+        }
+
+        .submit-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(0,0,0,0.4);
+        }
+
+        /* Message Box for JS feedback */
+        .message-box {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            display: none; /* Hidden by default */
+            font-weight: 600;
+        }
+
+        .success {
+            background: #4ecdc4;
+            color: #333;
+        }
+
+        .error {
+            background: #ff6b6b;
+            color: white;
+        }
+        
         /* Footer */
         footer {
             text-align: center;
             padding: 30px 0;
             margin-top: 50px;
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            /* Positioning footer at the bottom */
+            position: relative;
         }
-
+        
         .social-links {
             display: flex;
             justify-content: center;
@@ -197,41 +323,61 @@
 
         .social-links a:hover {
             color: #ff6b6b;
-            transform: scale(1.2);
+            transform: scale(1.2) rotate(5deg);
         }
 
         /* Responsive Design */
-        @media (max-width: 768px) {
+        @media (max-width: 900px) {
+             /* Adjust layout for tablet size */
             .hero {
                 flex-direction: column;
                 text-align: center;
+                padding: 60px 0;
             }
 
             .hero-content {
-                margin-bottom: 50px;
+                margin-bottom: 40px;
             }
 
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 3rem;
             }
-
-            nav ul {
+            
+            nav {
+                display: none; /* Hide nav on small screens, or implement a mobile menu */
+            }
+            
+            .contact-form {
+                padding: 20px;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            /* Adjust layout for mobile size */
+            header {
+                flex-direction: column;
                 gap: 15px;
-                font-size: 14px;
             }
-
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
             .features-grid {
                 grid-template-columns: 1fr;
             }
-        }
-
-        @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
+            
+            .features {
+                margin: 30px 0;
+                padding: 50px 20px;
             }
         }
     </style>
@@ -256,17 +402,33 @@
             <div class="hero-content">
                 <h1>Transform Your Digital Experience</h1>
                 <p>Discover the future of web development with our cutting-edge solutions designed to elevate your online presence and drive meaningful engagement.</p>
-               <!-- <button class="cta-button">Get Started</button> -->
-                <h1>Top 4 Powerful AI tools</h1>
-                <h2 style="font-style: italic;">Use All In One</h2> <br>
-               <section><button class="cta-button"> <a href="https://gemini.google.com/">Get Started with Gemini</a></button> </section> <br>
-               <section><button class="cta-button"><a href="https://chat.qwen.ai/">Get Started with Qwen</a> </button>  </section> <br>
-               <section><button class="cta-button"><a href=" https://lovable.dev/">Get Started with Lovable</a> </button>  </section> <br>
-               <section><button class="cta-button"><a href=" https://pentestgpt.ai/c">Get Started with PentestGpt</a> </button>  </section> 
-              
+                
+                <!-- Updated heading to reflect 7 tools -->
+                <h1 style="font-size: 2.5rem; margin-top: 30px;">Top 7 Powerful AI Tools</h1>
+                <h2 style="font-style: italic; font-weight: 400; font-size: 1.5rem; opacity: 0.9;">Use All In One Place</h2> 
+                
+                <!-- VISIBLE CTA Buttons (4) -->
+                <button class="cta-button"> <a href="https://gemini.google.com/" target="_blank">Get Started with **Gemini**</a></button>
+                <button class="cta-button"><a href="https://chat.qwen.ai/" target="_blank">Get Started with **Qwen**</a> </button> 
+                <button class="cta-button"><a href="https://lovable.dev/" target="_blank">Get Started with **Lovable**</a> </button> 
+                <button class="cta-button"><a href="https://pentestgpt.ai/c" target="_blank">Get Started with **PentestGpt**</a> </button> 
+
+                <!-- TOGGLE BUTTON -->
+                <button class="cta-button" id="toggleOptionsButton">
+                    <a href="javascript:void(0);" id="toggleOptionsButtonLink">More AI Options <i class="fas fa-chevron-down"></i></a>
+                </button>
+                
+                <!-- HIDDEN OPTIONS (3) -->
+                <div id="hiddenOptions" style="display: none;">
+                    <button class="cta-button"><a href="https://claude.ai/" target="_blank">Get Started with **Claude**</a> </button> 
+                    <button class="cta-button"><a href="https://copilot.microsoft.com/" target="_blank">Get Started with **Copilot**</a> </button> 
+                    <button class="cta-button"><a href="https://www.perplexity.ai/" target="_blank">Get Started with **Perplexity**</a> </button> 
+                </div>
+                
             </div>
             <div class="hero-image">
-                <img src="c:\Users\bu\Documents\web development training\1761770011.png" alt="">
+                <!-- Replaced local file path with a modern, fitting placeholder URL -->
+                <img src="https://placehold.co/500x500/4ecdc4/ffffff?text=AI+Tools+Platform" alt="Illustration of a modern AI tool interface">
             </div>
         </section>
 
@@ -274,6 +436,8 @@
         <section class="features" id="features">
             <h2 class="section-title">Amazing Features</h2>
             <div class="features-grid">
+                
+                <!-- Feature 1: Lightning Fast -->
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-rocket"></i>
@@ -281,6 +445,8 @@
                     <h3>Lightning Fast</h3>
                     <p>Optimized performance with blazing fast load times and smooth animations that keep your users engaged.</p>
                 </div>
+                
+                <!-- Feature 2: Fully Responsive -->
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-mobile-alt"></i>
@@ -288,6 +454,8 @@
                     <h3>Fully Responsive</h3>
                     <p>Beautiful on every device, from mobile phones to desktop computers, ensuring perfect user experience.</p>
                 </div>
+                
+                <!-- Feature 3: Secure & Reliable -->
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-shield-alt"></i>
@@ -297,19 +465,190 @@
                 </div>
             </div>
         </section>
+        
+        <!-- Contact Section (Now connected to Firestore) -->
+        <section class="contact" id="contact">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-form">
+                <!-- Message box for JS feedback -->
+                <div class="message-box" id="form-message"></div>
+                
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-button">Send Message</button>
+                </form>
+            </div>
+        </section>
 
         <!-- Footer -->
         <footer>
             <div class="social-links">
-                <a href="#"><i class="fab fa-twitter">twitter</i></a>
-                <a href="https://www.facebook.com"><i class="fab fa-facebook">facebook</i></a>
-                <a href="#"><i class="fab fa-instagram">instagram</i></a>
-                <a href="#"><i class="fab fa-linkedin">linkedin</i></a>
-                  <a href="https://www.tiktok.com/en/"><i class="fab fa-tiktok">tiktok</i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a> 
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a> 
+                <a href="https://www.tiktok.com/en/" target="_blank"><i class="fab fa-tiktok"></i></a>
             </div>
             <p>&copy; 2025 AbuAdisuEfrem . All rights reserved.</p>
         </footer>
     </div>
+    
+    <!-- STANDARD SCRIPT: For UI logic that must run immediately, even on file:// protocol -->
+    <script>
+        /**
+         * Sets up the click listener for the More Options button.
+         * This function is placed outside the module script to guarantee execution 
+         * even when the Firebase module imports fail in local VS Code environments.
+         */
+        function setupToggle() {
+            const hiddenDiv = document.getElementById('hiddenOptions');
+            const toggleLink = document.getElementById('toggleOptionsButtonLink');
+
+            if (!hiddenDiv || !toggleLink) return;
+
+            toggleLink.addEventListener('click', () => {
+                const isHidden = hiddenDiv.style.display === 'none';
+
+                if (isHidden) {
+                    // Show options
+                    hiddenDiv.style.display = 'block';
+                    toggleLink.innerHTML = 'Show Fewer Options <i class="fas fa-chevron-up"></i>';
+                } else {
+                    // Hide options
+                    hiddenDiv.style.display = 'none';
+                    toggleLink.innerHTML = 'More AI Options <i class="fas fa-chevron-down"></i>';
+                    // Optional: Scroll up to keep the button centered if many links were visible
+                    toggleLink.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            });
+        }
+        
+        // Execute the UI setup once the DOM is loaded
+        document.addEventListener('DOMContentLoaded', setupToggle);
+    </script>
+    
+    <!-- FIREBASE MODULE SCRIPT: For backend/Firestore logic using imports -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, collection, addDoc, setLogLevel } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        // Global variables provided by the environment
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {};
+        const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
+
+        let db;
+        let auth;
+        const form = document.getElementById('contactForm');
+        const messageBox = document.getElementById('form-message');
+
+        /**
+         * Initializes Firebase and authenticates the user.
+         */
+        async function initializeFirebase() {
+            try {
+                if (Object.keys(firebaseConfig).length === 0) {
+                    throw new Error("Firebase configuration is missing.");
+                }
+
+                const app = initializeApp(firebaseConfig);
+                db = getFirestore(app);
+                auth = getAuth(app);
+                setLogLevel('debug'); 
+
+                // Authentication for secure data access
+                if (initialAuthToken) {
+                    await signInWithCustomToken(auth, initialAuthToken);
+                    console.log("Firebase: Signed in with custom token.");
+                } else {
+                    await signInAnonymously(auth);
+                    console.log("Firebase: Signed in anonymously.");
+                }
+            } catch (error) {
+                console.error("Error initializing Firebase or Auth:", error);
+                // Note: The form message box will handle the display of this error.
+            }
+        }
+        
+        /**
+         * Handles the contact form submission and saves data to Firestore.
+         */
+        form.addEventListener('submit', async function(event) {
+            event.preventDefault();
+
+            // Get input values
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+
+            // Clear previous messages
+            messageBox.style.display = 'none';
+            messageBox.classList.remove('success', 'error');
+
+            // Basic client-side validation
+            if (!name || !email || !message) {
+                messageBox.classList.add('error');
+                messageBox.textContent = 'Please fill out all required fields.';
+                messageBox.style.display = 'block';
+                return;
+            }
+
+            if (!db || !auth.currentUser) {
+                 messageBox.classList.add('error');
+                 messageBox.textContent = 'Database connection or user session not ready. Please wait and try again.';
+                 messageBox.style.display = 'block';
+                 return;
+            }
+            
+            // Show loading state
+            messageBox.textContent = 'Sending message to the cloud database...';
+            messageBox.style.display = 'block';
+
+            const userId = auth.currentUser.uid;
+            const contactMessage = {
+                name: name,
+                email: email,
+                message: message,
+                timestamp: new Date().toISOString(),
+                userId: userId,
+                status: 'new'
+            };
+            
+            try {
+                // Public data path for contact forms: artifacts/{appId}/public/data/{collection_name}
+                const publicDataPath = `artifacts/${appId}/public/data/contact_messages`;
+                const colRef = collection(db, publicDataPath);
+                
+                await addDoc(colRef, contactMessage);
+
+                // Success
+                messageBox.classList.add('success');
+                messageBox.textContent = 'Success! Your message has been saved to the secure Firestore database.';
+                form.reset();
+                
+            } catch (error) {
+                // Error
+                messageBox.classList.remove('success');
+                messageBox.classList.add('error');
+                messageBox.textContent = `Failed to send message. Error: ${error.message}`;
+                console.error("Firestore submission failed:", error);
+            }
+        });
+
+        // Start the full stack application
+        initializeFirebase();
+    </script>
 </body>
 </html>
-
